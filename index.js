@@ -5,12 +5,14 @@ import authRouter from "./src/module/auth/auth.router.js";
 import userRouter from "./src/module/user/user.router.js";
 import companyRouter from "./src/module/company/company.router.js";
 import jobRouter from "./src/module/job/job.router.js";
+import cors from "cors";
 
 dotenv.config();
 const port = process.env.PORT;
 const app = express();
 app.use(express.json());
 connectDB();
+app.use(cors());
 
 // &Routers
 app.use("/auth", authRouter);
